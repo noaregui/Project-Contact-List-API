@@ -1,9 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
-export const Contacto = () => {
+import { Context } from "../store/appContext";
+import { useContext } from "react";
+
+
+export const Contacto = ({name, email, phone, adress}) => {
+    
     return (
         <>
-            <button type="button" class="btn btn-success">Add new contact</button>
+            <button type="button" className="btn btn-success">Add new contact</button>
             <div className="card mb-3" style={{maxWidth: "540px"}}>
                 <div className="row g-0">
                     <div className="col-md-4">
@@ -11,18 +15,18 @@ export const Contacto = () => {
                     </div>
                     <div className="col-md-8">
                     <div className="card-body">
-                        <h5 className="card-title">Name</h5>
+                        <h5 className="card-title">{name}</h5>
                         <p className="card-text">
                             <i>ICONO </i>
-                            <small className="text-muted">Direction</small>
+                            <small className="text-muted">{adress}</small>
                         </p>
                         <p className="card-text">
                             <i>ICONO </i>
-                            <small className="text-muted">Phone</small>
+                            <small className="text-muted">{phone}</small>
                         </p>
                         <p className="card-text">
                             <i>ICONO </i>
-                            <small className="text-muted">Email</small>
+                            <small className="text-muted">{email}</small>
                         </p>
 
                     </div>
