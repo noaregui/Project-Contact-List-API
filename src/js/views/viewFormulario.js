@@ -9,6 +9,6 @@ import "../../styles/demo.css";
 export const ViewFormulario = () => {
     const { store, actions } = useContext(Context);
     return(
-        Formulario()
+        <Formulario />
     );
 };

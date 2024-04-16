@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => console.error(error));
 			},
 
-			crearContacto: (contacto) => {
+			crearContacto: (contacto, navigate) => {
 				const myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
 
@@ -52,7 +52,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch("https://playground.4geeks.com/contact/agendas/ainhoa/contacts", requestOptions)
 					.then((response) => response.json())
-					.then((result) => console.log(result))
+					.then((result) => {
+						getActions().cargarContactos()
+						navigate("/")
+						console.log(result)})
 					.catch((error) => console.error(error));
 			},
 

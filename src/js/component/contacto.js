@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../../styles/navbar.css";
 
 export const Contacto = (props) => {
 	return (
-		<div className="container">
+	<div className="container">
 		<div className="row">
 		  <div className="card mb-3" style={{ maxWidth: "540px" }}>
 			<div className="row g-3">

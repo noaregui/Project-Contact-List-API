@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useContext} from "react";
 import { Context } from "../store/appContext";
+import { useNavigate } from "react-router";
 
 
 export const Formulario = () => {
@@ -10,13 +11,14 @@ export const Formulario = () => {
 		phone: "",
 		address: ""
 	});
+	const navigate = useNavigate()
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		actions.crearContacto(contacto)
+		actions.crearContacto(contacto, navigate)
 	}
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
 			<fieldset>
 				<legend><strong>Add a new contact</strong></legend>
 				<div className="mb-3">
@@ -46,7 +48,6 @@ export const Formulario = () => {
 					></input>
 				</div>
 				<button type="submit" className="btn btn-primary"
-					onClick={(e) => handleSubmit(e)}
 				>save</button>	
 			</fieldset>
 			<label className="form-check-label" htmlFor="disabledFieldsetCheck">
