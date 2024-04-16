@@ -1,6 +1,4 @@
 import React, {useState, useEffect, useContext} from "react";
-import { Link } from "react-router-dom";
-// import injectContext from "../store/appContext";
 import { Context } from "../store/appContext";
 
 
@@ -12,15 +10,19 @@ export const Formulario = () => {
 		phone: "",
 		address: ""
 	});
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		actions.crearContacto(contacto)
+	}
 
     return (
         <form>
-			<fieldset disabled>
+			<fieldset>
 				<legend><strong>Add a new contact</strong></legend>
 				<div className="mb-3">
 					<label htmlFor="disabledTextInput" className="form-label">Full name</label>
 					<input 
-						type="text" id="disabledTextInput" className="form-control" placeholder="Full name"
+						type="text" id="disabledTextInput" className="form-control" placeholder="Full name" 
 						onChange={(e) => setContacto({...contacto, name: e.target.value})}
 					></input>
 				</div>
@@ -44,7 +46,7 @@ export const Formulario = () => {
 					></input>
 				</div>
 				<button type="submit" className="btn btn-primary"
-				onClick={() => actions.crearContacto(contacto)}
+				onClick={(e) => handleSubmit(e)}
 				>save</button>	
 			</fieldset>
 			<label className="form-check-label" htmlFor="disabledFieldsetCheck">

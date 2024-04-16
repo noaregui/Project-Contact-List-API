@@ -23,8 +23,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			crearUsuario: () => {
 				const requestOptions = {
 					method: "POST",
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({}) // Agregar datos al body si es necesario
+					headers: {
+						"Content-Type": "aplication/json"
+					},
+					redirect: "follow"
 				};
 
 				fetch("https://playground.4geeks.com/contact/agendas/ainhoa", requestOptions)
@@ -34,48 +36,57 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			crearContacto: (contacto) => {
+				const myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				const raw = JSON.stringify(
+					contacto
+				);
+
 				const requestOptions = {
 					method: "POST",
 					headers: myHeaders,
-					body: contacto,
+					body: raw,
 					redirect: "follow"
-				  };
-				  
-				  fetch("https://playground.4geeks.com/contact/agendas/ainhoa/contacts", requestOptions)
-					.then((response) => response.json())
+				};
+
+				fetch("https://playground.4geeks.com/contact/agendas/ainhoa/contacts", requestOptions)
+					.then((response) => response.text())
 					.then((result) => console.log(result))
 					.catch((error) => console.error(error));
-					cargarContactos();
 			},
 
 			editarContacto: (id, contactoEditado) => {
 				const requestOptions = {
 					method: "PUT",
-					headers: myHeaders,
-					body: contactoEditado,
+					headers: {
+						"Content-Type": "aplication/json"
+					},
+					body: JSON.stringify(contactoEditado),
 					redirect: "follow"
-				  };
-				  
-				  fetch(`https://playground.4geeks.com/contact/agendas/ainhoa/contacts/${id}`, requestOptions)
+				};
+
+				fetch(`https://playground.4geeks.com/contact/agendas/ainhoa/contacts/${id}`, requestOptions)
 					.then((response) => response.json())
 					.then((result) => console.log(result))
 					.catch((error) => console.error(error));
-					cargarContactos();
+				getActions().cargarContactos();
 			},
 
 			eliminarContacto: (id) => {
 				const requestOptions = {
 					method: "DELETE",
-					headers: myHeaders,
-					body: raw,
+					headers: {
+						"Content-Type": "aplication/json"
+					},
 					redirect: "follow"
-				  };
-				  
-				  fetch(`https://playground.4geeks.com/contact/agendas/ainhoa/contacts/${id}`, requestOptions)
+				};
+
+				fetch(`https://playground.4geeks.com/contact/agendas/ainhoa/contacts/${id}`, requestOptions)
 					.then((response) => response.json())
 					.then((result) => console.log(result))
 					.catch((error) => console.error(error));
-					cargarContactos();
+				getActions().cargarContactos();
 			},
 
 			exampleFunction: () => {
