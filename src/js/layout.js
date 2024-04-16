@@ -2,13 +2,10 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+// import { Home } from "./views/home";
 import injectContext from "./store/appContext";
-
-import { Contacto } from "./component/contacto";
-import { Formulario } from "./component/formulario";
+import { ViewContacto } from "./views/viewContacto";
+import { ViewFormulario } from "./views/viewFormulario";
 
 //create your first component
 const Layout = () => {
@@ -20,14 +17,11 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Formulario />
-					{/* <Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
+					<Routes>
+						<Route path="/formulario" element={<ViewFormulario />} />
+						<Route path="/contactos" element={<ViewContacto />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
-					</Routes> */}
-					<Contacto />
+					</Routes>
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

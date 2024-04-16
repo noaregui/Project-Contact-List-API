@@ -16,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							}
 						}
 					})
-					.then((result) => setStore({ contactos: result }))
+					.then((result) => setStore({ contactos: result.contacts }))
 					.catch((error) => console.error(error));
 			},
 
@@ -51,7 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				fetch("https://playground.4geeks.com/contact/agendas/ainhoa/contacts", requestOptions)
-					.then((response) => response.text())
+					.then((response) => response.json())
 					.then((result) => console.log(result))
 					.catch((error) => console.error(error));
 			},

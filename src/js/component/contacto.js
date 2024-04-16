@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Contacto = () => {
+export const Contacto = (props) => {
 	return (
 		<div className="container">
 		<div className="row">
@@ -12,10 +12,10 @@ export const Contacto = () => {
 			  </div>
 			  <div className="col-6">
 				<div className="card-body">
-				  <h5 className="card-title">Nombre</h5>
-				  <p className="card-text"><small className="text-muted">Dirección</small></p>
-				  <p className="card-text"><small className="text-muted">Teléfono</small></p>
-				  <p className="card-text"><small className="text-muted">Email</small></p>
+				  <h5 className="card-title">{props.nombre}</h5>
+				  <p className="card-text"><small className="text-muted">{props.direccion}</small></p>
+				  <p className="card-text"><small className="text-muted">{props.telefono}</small></p>
+				  <p className="card-text"><small className="text-muted">{props.email}</small></p>
 				</div>
 			  </div>
 			  <div className="col-2">

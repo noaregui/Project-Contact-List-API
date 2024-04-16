@@ -46,7 +46,7 @@ export const Formulario = () => {
 					></input>
 				</div>
 				<button type="submit" className="btn btn-primary"
-				onClick={(e) => handleSubmit(e)}
+					onClick={(e) => handleSubmit(e)}
 				>save</button>	
 			</fieldset>
 			<label className="form-check-label" htmlFor="disabledFieldsetCheck">
