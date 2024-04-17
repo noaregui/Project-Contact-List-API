@@ -14,7 +14,7 @@ export const ViewContacto = () => {
 			<div className="container">
 				{store.contactos.map((contacto, index) => {
 					return (
-						<Contacto key={index} nombre={contacto.name} direccion={contacto.address} telefono={contacto.phone} email={contacto.email}/>
+						<Contacto key={index} nombre={contacto.name} direccion={contacto.address} telefono={contacto.phone} email={contacto.email} id={contacto.id}/>
 					)
 				})}
 			

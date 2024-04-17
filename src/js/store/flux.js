@@ -55,7 +55,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((result) => {
 						getActions().cargarContactos()
 						navigate("/")
-						console.log(result)})
+						console.log(result)
+					})
 					.catch((error) => console.error(error));
 			},
 
@@ -92,6 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().cargarContactos();
 			},
 
+			
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
