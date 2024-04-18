@@ -5,6 +5,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 		},
 		actions: {
+			selectedId: (data) => {
+				setStore({ contactoSeleccionado: data })
+			},
 			cargarContactos: () => {
 				fetch("https://playground.4geeks.com/contact/agendas/ainhoa")
 					.then((response) => {
@@ -93,7 +96,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().cargarContactos();
 			},
 
-			
+
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},

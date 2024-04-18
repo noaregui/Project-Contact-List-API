@@ -47,12 +47,12 @@ export const Formulario = () => {
 					onChange={(e) => setContacto({...contacto, address: e.target.value})}	
 					></input>
 				</div>
-				<button type="submit" className="btn btn-primary"
-				>save</button>	
-			</fieldset>
-			<label className="form-check-label" htmlFor="disabledFieldsetCheck">
-					Get back to contacts
-			</label>
+				<button type="submit" className="btn btn-dark"
+				>Save</button>
+				<button className="btn btn-dark"
+						onClick={() => navigate("/")}
+				>Go back to contacts</button>
+			</fieldset>			
 		</form>
     );
 };

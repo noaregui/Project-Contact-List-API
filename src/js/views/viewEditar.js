@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext} from "react";
 import { Context } from "../store/appContext";
-import { useNavigate } from "react-router";
-
+import { useNavigate, useParams } from "react-router";
 
 export const ViewEditar = () => {
 	const {store, actions} = useContext(Context);
@@ -12,6 +11,9 @@ export const ViewEditar = () => {
 		address: ""
 	});
 	const navigate = useNavigate()
+	const params = useParams();
+
+	const id = params.id
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		actions.crearContacto(contacto, navigate)

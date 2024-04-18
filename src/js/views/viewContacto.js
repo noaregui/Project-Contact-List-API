@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Contacto } from "../component/contacto";
 import { Navbar } from "../component/navbar";
-import "../../styles/demo.css";
+import "../../styles/navbar.css";
 
 export const ViewContacto = () => {
 	const { store, actions } = useContext(Context);
