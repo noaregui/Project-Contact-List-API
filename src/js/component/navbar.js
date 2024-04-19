@@ -4,7 +4,7 @@ import "../../styles/navbar.css";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-light mb-3" style={{ color: "red" }}>
+    <nav className="navbar">
       <span className="navbar-brand">
         <strong>Your contact list</strong>
       </span>

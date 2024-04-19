@@ -4,14 +4,16 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 import "../../styles/navbar.css";
+import "../../styles/index.css";
 
 export const Contacto = ({ nombre, direccion, telefono, email, id }) => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  const handleDelete = async () => {
+  const handleDelete = async () =>{
     await actions.eliminarContacto(id);
-  };
+    actions.cargarContactos()
+};
 
   const handleEdit = (id) => {
     const contactoSeleccionado = store.contactos.filter(
