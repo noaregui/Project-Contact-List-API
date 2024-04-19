@@ -13,7 +13,7 @@ body {
     background: #E8E8E8;
     box-shadow: 15px 15px 30px rgb(25, 25, 25),
              -15px -15px 30px rgb(60, 60, 60);
-
+    
 
 }
 
@@ -36,7 +36,7 @@ img {
     width: 95.02px;
     height: 42.66px;
     border: none;
-    background-color: #3653f8;
+    background-color: rgb(58, 58, 97);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,3 +236,23 @@ img {
       text-align: center;
   }
  
+  .formulario-crearContacto {
+    margin-top: 50px;
+  }
+  .btn.btn-primary {
+    background-color: #3A3A61;
+    border: none;
+  }
+  .formulario-editarContacto {
+    margin-top: 50px;
+  }
+
+  legend {
+    text-align: center;
+  }
+
+  .botones-abajo {
+    display: flex;
+    justify-content: center;
+    
+  }
