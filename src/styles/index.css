@@ -254,10 +254,12 @@ img {
   .botones-abajo {
     display: flex;
     justify-content: center;
-    
   }
 
   a {
     display: flex;
     justify-content: center;
+  }
+  .CreateNewContact {
+    margin-bottom: 10px;
   }
