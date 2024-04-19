@@ -9,25 +9,20 @@ export const ViewEditar = () => {
   const navigate = useNavigate();
   const id = params.id;
 
-  const [contacto, setContacto] = useState({
-    name: store.contactoSeleccionado[0].name,
-    email: store.contactoSeleccionado[0].email,
-    phone: store.contactoSeleccionado[0].phone,
-    address: store.contactoSeleccionado[0].address,
-  });
+  const [contacto, setContacto] = useState(store.contactoSeleccionado);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     actions.editarContacto(id, contacto) ? navigate("/") : ""
   };
 
-  console.log(store.contactoSeleccionado)
+  console.log(contacto)
   return (
     <div className="formulario-editarContacto">
       <div className="container">
         <div className="card">
           <div className="card-body">
-            <form className="formulario">
+            <form onSubmit={handleSubmit} className="formulario">
               <legend>EDIT CONTACT</legend>
               <div className="mb-3">
                 <label htmlFor="nombreCompleto" className="form-label">
@@ -90,23 +85,21 @@ export const ViewEditar = () => {
                 />
               </div>
               <div className="botones-abajo">
-                <div className="mb-3">
-                  <Link to="/viewFormulario">
-                    <button className="CreateNewContact">
-                      <span className="span-mother">
-                        <span>S</span>
-                        <span>a</span>
-                        <span>v</span>
-                        <span>e</span>
-                      </span>
-                      <span className="span-mother2">
-                        <span>S</span>
-                        <span>a</span>
-                        <span>v</span>
-                        <span>e</span>
-                      </span>
-                    </button>
-                  </Link>
+                <div className="mb-3 botones">
+                  <button type="submit" className="CreateNewContact">
+                    <span className="span-mother">
+                      <span>S</span>
+                      <span>a</span>
+                      <span>v</span>
+                      <span>e</span>
+                    </span>
+                    <span className="span-mother2">
+                      <span>S</span>
+                      <span>a</span>
+                      <span>v</span>
+                      <span>e</span>
+                    </span>
+                  </button>
                   <div className="form-check">
                     <Link to="/" className="btn btn-secondary me-2">
                       Got back to contacts

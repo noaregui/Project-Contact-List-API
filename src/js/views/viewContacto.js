@@ -15,6 +15,7 @@ export const ViewContacto = () => {
           return (
             <Contacto
               key={index}
+              index={index} 
               nombre={contacto.name}
               direccion={contacto.address}
               telefono={contacto.phone}

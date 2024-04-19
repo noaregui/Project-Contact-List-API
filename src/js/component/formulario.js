@@ -15,6 +15,7 @@ export const Formulario = () => {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("HOLA")
     actions.crearContacto(contacto, navigate);
   };
 
@@ -82,9 +83,8 @@ export const Formulario = () => {
                 />
               </div>
               <div className="botones-abajo">
-                <div className="mb-3">
-                  <Link to="/viewFormulario">
-                    <button className="CreateNewContact">
+                <div className="mb-3 botones">                  
+                    <button type="submit" className="CreateNewContact">
                       <span className="span-mother">
                         <span>S</span>
                         <span>a</span>
@@ -97,8 +97,7 @@ export const Formulario = () => {
                         <span>v</span>
                         <span>e</span>
                       </span>
-                    </button>
-                  </Link>
+                    </button>                  
                   <div className="form-check">
                     <Link to="/" className="btn btn-secondary me-2">
                       Got back to contacts

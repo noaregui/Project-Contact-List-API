@@ -13,9 +13,7 @@ body {
     background: #E8E8E8;
     box-shadow: 15px 15px 30px rgb(25, 25, 25),
              -15px -15px 30px rgb(60, 60, 60);
-    
-
-}
+   }
 
 img {
     width: 90%;
@@ -262,4 +260,12 @@ img {
   }
   .CreateNewContact {
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mb-3.botones {
+    display: flex;
+    justify-content: center;
+
   }

@@ -6,9 +6,23 @@ import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
 import "../../styles/index.css";
 
-export const Contacto = ({ nombre, direccion, telefono, email, id }) => {
+export const Contacto = ({ index, nombre, direccion, telefono, email, id }) => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+
+  const imagenes = [
+    "https://images.pexels.com/photos/3777946/pexels-photo-3777946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1102341/pexels-photo-1102341.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/819530/pexels-photo-819530.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/4064817/pexels-photo-4064817.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/5588373/pexels-photo-5588373.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/5273710/pexels-photo-5273710.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ]
+ 
+  const imagenRandom = imagenes[index]
+  console.log(imagenRandom)
 
   const handleDelete = async () =>{
     await actions.eliminarContacto(id);
@@ -19,7 +33,8 @@ export const Contacto = ({ nombre, direccion, telefono, email, id }) => {
     const contactoSeleccionado = store.contactos.filter(
       (contacto) => contacto.id === id
     );
-    actions.selectedId(contactoSeleccionado);
+    console.log(contactoSeleccionado[0])
+    actions.selectedId(contactoSeleccionado[0]);
     navigate(`/viewEditar/${id}`);
   };
 
@@ -30,7 +45,7 @@ export const Contacto = ({ nombre, direccion, telefono, email, id }) => {
           <div className="row g-3">
             <div className="col-md-4">
               <img
-                src="https://images.pexels.com/photos/3777946/pexels-photo-3777946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src={imagenRandom}
                 className="imagenPerfil"
                 alt="..."
               />
@@ -77,6 +92,7 @@ export const Contacto = ({ nombre, direccion, telefono, email, id }) => {
         </div>
       </div>
     </div>
+    
   );
 };
 // img-fluid rounded-start
