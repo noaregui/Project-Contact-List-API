@@ -1,12 +1,16 @@
+import React from "react";
+import { useState } from "react";
+
 const getState = ({ getStore, getActions, setStore }) => {
+	
 	return {
 		store: {
 			contactos: [],
-
+			contactoSeleccionado:null
 		},
 		actions: {
-			selectedId: (data) => {
-				setStore({ contactoSeleccionado: data })
+			selectedId: (data) =>{
+				setStore({ contactoSeleccionado: data})
 			},
 			cargarContactos: () => {
 				fetch("https://playground.4geeks.com/contact/agendas/ainhoa")
@@ -58,66 +62,61 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((result) => {
 						getActions().cargarContactos()
 						navigate("/")
-						console.log(result)
-					})
+						console.log(result)})
 					.catch((error) => console.error(error));
 			},
 
-			editarContacto: (id, contactoEditado) => {
+			editarContacto: async (id, contactoEditado) => {
 				const requestOptions = {
 					method: "PUT",
 					headers: {
-						"Content-Type": "aplication/json"
+						"Content-Type": "application/json"
 					},
 					body: JSON.stringify(contactoEditado),
 					redirect: "follow"
 				};
 
-				fetch(`https://playground.4geeks.com/contact/agendas/ainhoa/contacts/${id}`, requestOptions)
-					.then((response) => response.json())
-					.then((result) => console.log(result))
-					.catch((error) => console.error(error));
-				getActions().cargarContactos();
+				
+					try {
+						const resp= await fetch(`https://playground.4geeks.com/contact/agendas/ainhoa/contacts/${id}`, requestOptions)
+						if(resp.ok){							
+							const result = await resp.json()
+							console.log(result)
+							getActions().cargarContactos();
+							return true;
+						}
+					} catch (error) {
+						console.log (error)
+						return false;
+					}
+					
+				
 			},
 
 			eliminarContacto: (id) => {
-				const requestOptions = {
-					method: "DELETE",
-					headers: {
-						"Content-Type": "aplication/json"
-					},
-					redirect: "follow"
-				};
-
-				fetch(`https://playground.4geeks.com/contact/agendas/ainhoa/contacts/${id}`, requestOptions)
-					.then((response) => response.json())
-					.then((result) => console.log(result))
-					.catch((error) => console.error(error));
-				getActions().cargarContactos();
-			},
-
-
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-
-			loadSomeData: () => {
-				// Implementar carga de datos desde una API usando fetch y actualizar el store
-				// fetch().then().then(data => setStore({ "foo": data.bar }))
-			},
-
-			changeColor: (index, color) => {
-				const store = getStore();
-
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) {
-						elm.background = color;
-					}
-					return elm;
-				});
-
-				setStore({ demo: demo });
+				return (
+					fetch(`https://playground.4geeks.com/contact/agendas/ainhoa/contacts/${id}`, {
+						method: "DELETE",
+						headers: {
+							"Content.type": "application/json"
+						}
+					})
+						.then(resp => {
+							if (resp.status == 200) {
+								console.log(resp)
+								alert("Contacto eliminado exitosamente")
+							} else return resp.json();
+						})
+						.then(resp => console.log(resp))
+						.catch(error => console.log(error))
+				)
 			}
+
+			
+
+			
+
+			
 		}
 	};
 };

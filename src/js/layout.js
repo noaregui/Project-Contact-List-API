@@ -7,8 +7,7 @@ import injectContext from "./store/appContext";
 import { ViewContacto } from "./views/viewContacto";
 import { ViewFormulario } from "./views/viewFormulario";
 import { ViewEditar } from "./views/viewEditar";
-import { Navbar } from "./component/navbar";
-import { Single } from "./views/single";
+
 
 //create your first component
 const Layout = () => {
