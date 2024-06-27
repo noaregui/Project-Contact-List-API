@@ -1,3 +1,31 @@
+<div align="center">
+	<h1 align="center">📒 Contact list</h1>
+</div>
+<p>Contact List es una aplicación simple y amigable que te permite gestionar tus contactos de manera eficiente. Es un proyecto perfecto para principiantes que quieren sumergirse en el mundo de la programación y aprender conceptos fundamentales de desarrollo web y gestión de datos. 
+<div align="center">
+	<h3>¡Se acabó seguir apuntando los números de tus amigos en post-its solo para perderlos después!</h3>
+</div>
+<div align="center">
+	<img src="https://media2.giphy.com/media/xHMIDAy1qkzNS/200.webp?cid=790b76112bfxiy9zpmyfgpm6cw8bxi6kpymj8nzzred20836&ep=v1_gifs_search&rid=200.webp&ct=g"></img>
+</div>
+
+
+## 💡 ¿Por qué es genial para principiantes?
+Este proyecto es una excelente manera de:
+
+- 📝 Aprender los conceptos básicos de CRUD (Crear, Leer, Actualizar, Eliminar).
+- 🌐 Entender la estructura de un proyecto de desarrollo web.
+- 💻 Practicar con HTML, CSS y JavaScript.
+- 🗃️ Explorar cómo trabajar con APIs y almacenamiento local.
+- 🚀 Introducirse a frameworks como React.
+
+## 🛠️ Funcionalidades Principales
+- ➕ Añadir Contactos: Guarda nuevos contactos con nombre, número de teléfono y dirección de correo electrónico.
+- 👀 Ver Contactos: Visualiza tu lista de contactos de manera organizada.
+- ✍🏾 Editar Contactos: Actualiza la información de tus contactos cuando lo necesites.
+- ❌ Eliminar Contactos: Borra aquellos contactos que ya no necesites mantener.
+
+
 # WebApp boilerplate with React JS
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-hello-webapp.git)
 
